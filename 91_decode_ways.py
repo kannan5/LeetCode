@@ -45,6 +45,32 @@ class Solution:
 
         return ways
 
+    def decode_str(self, str_num):
+        l = len(str_num)
+        count = 0
+        if not str_num:
+            return 0
+        num_len = l - 1
+        while num_len >0:
+            if str_num[num_len] is "0":
+                if int(str_num[num_len - 1]) > 2:
+                    return 0
+                else:
+                    count += 1
+                num_len -= 1
+            else:
+                count += 2
+                num_len -= 2
+        return count
+
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     a = Solution()
@@ -55,11 +81,16 @@ if __name__ == "__main__":
     print(a.decode_ways("11106"))
     print(a.decode_ways("226"))
     print(time.time() - t)
-    print("Here Comes DP-- ")
-    t = time.time()
-    print(a.decode_ways("11210", 1))
-    print(a.decode_ways("0212", 1))
-    print(a.decode_ways("1253", 1))
-    print(a.decode_ways("11106", 1))
-    print(a.decode_ways("226", 1))
-    print(time.time() - t)
+    # print("Here Comes DP-- ")
+    # t = time.time()
+    # print(a.decode_ways("11210", 1))
+    # print(a.decode_ways("0212", 1))
+    # print(a.decode_ways("1253", 1))
+    # print(a.decode_ways("11106", 1))
+    # print(a.decode_ways("226", 1))
+    # print(time.time() - t)
+    print(a.decode_str("11210"))
+    print(a.decode_str("0212"))
+    print(a.decode_str("1253"))
+    print(a.decode_str("11106"))
+    print(a.decode_str("226"))
