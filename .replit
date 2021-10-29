@@ -1,0 +1,2 @@
+language = "python3"
+run = "python 1678_goal_parser.py"
